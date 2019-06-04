@@ -3,6 +3,7 @@ package com.qqspring.aop.helloworld;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.Arrays;
 
 public class AtithmeticCalculatorLoggingProxy {
     //    要代理的对象
@@ -22,7 +23,11 @@ public class AtithmeticCalculatorLoggingProxy {
         InvocationHandler h=new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                System.out.println("invoke....");
+                String methodName=method.getName();
+                //日志
+                System.out.println("the method "+methodName+" begin with "+ Arrays.asList(args));
+                Object result=method.invoke(target,args);
+                System.out.println("The method "+ methodName+ "  ends with "+ result);
                 return 0;
             }
         };
