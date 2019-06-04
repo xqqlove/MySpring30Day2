@@ -10,6 +10,9 @@ public class Main {
         int result=proxy.add(1,2);
         System.out.println("-->"+result);
 
+
+
+        //jhl
         result=proxy.div(4,2);
         System.out.println("-->"+result);
     }
